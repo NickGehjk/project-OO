@@ -19,20 +19,20 @@ public class TelaInicial implements ActionListener{
 		
 		frame.setSize(500, 300);
 		frame.getContentPane().setBackground(Color.BLACK);
-		//frame.getContentPane().setBackground(Color.orange);
+		//frame.getContentPane().setBackground(new Color(255, 77, 0));
 
 		but1.setBounds(80, 10, 300, 30);
 		but2.setBounds(80, 60, 300, 30);
 		but3.setBounds(80, 110, 300, 30);
-		but1.setBackground(Color.orange);
-		but2.setBackground(Color.ORANGE);
-		but3.setBackground(Color.orange);
+		but1.setBackground(new Color(255, 77, 0));
+		but2.setBackground(new Color(255, 77, 0));
+		but3.setBackground(new Color(255, 77, 0));
 		//but1.setBackground(Color.black);
 		//but2.setBackground(Color.black);
 		//but3.setBackground(Color.black);
-		//but1.setForeground(Color.orange);
-		//but2.setForeground(Color.orange);
-		//but3.setForeground(Color.orange);
+		//but1.setForeground(new Color(255, 77, 0));
+		//but2.setForeground(new Color(255, 77, 0));
+		//but3.setForeground(new Color(255, 77, 0));
 		
 		frame.add(but1);
 		frame.add(but2);
@@ -40,7 +40,7 @@ public class TelaInicial implements ActionListener{
 		
 		jlab = new JLabel("Pressione um botão.");
 		jlab.setSize(300, 375);
-		jlab.setForeground(Color.orange);
+		jlab.setForeground(new Color(255, 77, 0));
 		
 		frame.add(jlab);
 		

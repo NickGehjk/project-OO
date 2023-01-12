@@ -36,9 +36,9 @@ public class ExPlaylist implements ListSelectionListener{
 		jlab1.setBounds(200, 60, 300, 30);
 		jlab2.setBounds(80, 90, 300, 30);
 		jlst.setBounds(80, 120, 300, 250);
-		jlab.setForeground(Color.orange);
-		jlab1.setForeground(Color.orange);
-		jlab2.setForeground(Color.orange);
+		jlab.setForeground(new Color(255, 77, 0));
+		jlab1.setForeground(new Color(255, 77, 0));
+		jlab2.setForeground(new Color(255, 77, 0));
 		
 		frame.add(jlab);
 		frame.add(jlab1);

@@ -31,14 +31,14 @@ public class AddPlaylist implements ActionListener{
 		
 		jlab.setBounds(50, 20, 300, 30);
 		texto1.setBounds(100, 20, 200, 30);
-		jlab.setForeground(Color.orange);
+		jlab.setForeground(new Color(255, 77, 0));
 
 		jlab2.setBounds(50, 70, 300, 30);
 		texto2.setBounds(100, 70, 200, 30);
-		jlab2.setForeground(Color.orange);
+		jlab2.setForeground(new Color(255, 77, 0));
 		
 		cri.setBounds(75, 120, 250, 30);
-		cri.setBackground(Color.orange);
+		cri.setBackground(new Color(255, 77, 0));
 		
 		frame.add(jlab);
 		frame.add(texto1);

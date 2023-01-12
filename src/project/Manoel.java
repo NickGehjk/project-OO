@@ -42,11 +42,11 @@ public class Manoel implements ListSelectionListener{
 		jlab3.setBounds(340, 70, 300, 30);
 		jlab4.setBounds(80, 110, 300, 30);
 		jlst.setBounds(80, 140, 300, 250);
-		jlab.setForeground(Color.orange);
-		jlab1.setForeground(Color.orange);
-		jlab2.setForeground(Color.orange);
-		jlab3.setForeground(Color.orange);
-		jlab4.setForeground(Color.orange);
+		jlab.setForeground(new Color(255, 77, 0));
+		jlab1.setForeground(new Color(255, 77, 0));
+		jlab2.setForeground(new Color(255, 77, 0));
+		jlab3.setForeground(new Color(255, 77, 0));
+		jlab4.setForeground(new Color(255, 77, 0));
 		
 		frame.add(jlab);
 		frame.add(jlab1);
