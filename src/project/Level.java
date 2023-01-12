@@ -15,12 +15,13 @@ public class Level implements ActionListener{
 	private static JLabel jlab3;
 	private static JLabel jlab4;
 	
-	private static JTextarea letra;
+	private static JTextArea letra;
 	
 	public Level() {
 		frame = new JFrame("Level of Concern");
 		
 		frame.setSize(500, 600);
+		frame.getContentPane().setBackground(Color.BLACK);
 		
 		jlab = new JLabel("Level of Concern");
 		jlab1 = new JLabel("Twenty one Pilots");
@@ -34,7 +35,7 @@ public class Level implements ActionListener{
 		+ "Just need you to tell me we're alright\r\n"
 		+ "Tell me we're okay, yeah*/
 		
-		letra = new JTextarea("");
+		letra = new JTextArea("");
 		
 		letra.setLineWrap(true);
 		letra.setEditable(false);
@@ -48,20 +49,20 @@ public class Level implements ActionListener{
 		jlab2.setBounds(200, 50, 300, 30);
 		jlab3.setBounds(300, 50, 300, 30);
 		jlab4.setBounds(400, 50, 300, 30);
-		jlab.setForeground(Color.orange);
-		jlab1.setForeground(Color.orange);
-		jlab2.setForeground(Color.orange);
-		jlab3.setForeground(Color.orange);
-		jlab4.setForeground(Color.orange);
+		jlab.setForeground(new Color(255, 77, 0));
+		jlab1.setForeground(new Color(255, 77, 0));
+		jlab2.setForeground(new Color(255, 77, 0));
+		jlab3.setForeground(new Color(255, 77, 0));
+		jlab4.setForeground(new Color(255, 77, 0));
 		
 		letra.setBounds(50, 90, 400, 300);
 		
-		but1.setBounds(80, 400, 300, 30);
-		but2.setBounds(80, 450, 300, 30);
-		but3.setBounds(80, 500, 300, 30);
-		but1.setBackground(Color.orange);
-		but2.setBackground(Color.orange);
-		but3.setBackground(Color.orange);
+		but1.setBounds(90, 400, 300, 30);
+		but2.setBounds(90, 450, 300, 30);
+		but3.setBounds(90, 500, 300, 30);
+		but1.setBackground(new Color(255, 77, 0));
+		but2.setBackground(new Color(255, 77, 0));
+		but3.setBackground(new Color(255, 77, 0));
 		
 		frame.add(jlab);
 		frame.add(jlab1);
