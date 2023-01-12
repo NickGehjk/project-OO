@@ -4,7 +4,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.JFrame;
 
-public class Level implements actionListener{
+public class Level implements ActionListener{
 	private static JFrame frame;
 	private static JButton but1;
 	private static JButton but2;
