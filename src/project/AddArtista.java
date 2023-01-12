@@ -1,90 +1,86 @@
 package project;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-//import enumerators.Generos;
+import javax.swing.JFrame;
 
-public class AddArtista implements ListSelectionListener{
-	private static JFrame f;
+public class AddArtista implements ActionListener{
+	private static JFrame frame;
 
-	private static JTextField c;
 	private static JLabel jlab;
-	private static JTextField d;
-	private static JLabel jlab1;
-	private static JTextField e;
+	private static JTextField texto1;
 	private static JLabel jlab2;
+	private static JTextField texto2;
 	private static JLabel jlab3;
+	private static JTextField texto3;
+	private static JLabel jlabb;
+	private static JComboBox box;
 	
 	private static JButton cri;
-	
-	private static JList<String> jlst;
 	
 	String generos[] = {"rock", "pop", "trap", "rap", "funk",
 						"jazz", "MPB", "forró", "gospel"};
 	
 	public AddArtista() {
-		f = new JFrame("Adicionar Artista");
+		frame = new JFrame("Adicionar Artista");
 		
 		jlab = new JLabel("Nome:");
-		c = new JTextField("");
-		jlab1 = new JLabel("Idade:");
-		d = new JTextField("");
-		jlab2 = new JLabel("Nacionalidade:");
-		e = new JTextField("");
-		jlab3 = new JLabel("Gênero musical:");
-		
-		jlst = new JList<String>(generos);
-	
-		jlst.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
-		jlst.addListSelectionListener(this);
+		texto1 = new JTextField("");
+		jlab2 = new JLabel("Idade:");
+		texto2 = new JTextField("");
+		jlab3 = new JLabel("Nacionalidade:");
+		texto3 = new JTextField("");
+		jlabb = new JLabel("Gênero musical:");
+		box = new JComboBox(generos);
 		
 		cri = new JButton("Adicionar");
 		
-		f.setSize(500, 650);
+		frame.setSize(500, 650);
+		frame.getContentPane().setBackground(Color.BLACK);
 		
 		jlab.setBounds(50, 20, 300, 30);
-		c.setBounds(100, 20, 200, 30);
-		jlab1.setBounds(50, 70, 300, 30);
-		d.setBounds(100, 70, 200, 30);
-		jlab2.setBounds(50, 120, 300, 30);
-		e.setBounds(150, 120, 200, 30);
-		jlab3.setBounds(50, 170, 300, 30);
-		jlst.setBounds(120, 220, 130, 169);
+		texto1.setBounds(100, 20, 200, 30);
+		jlab.setForeground(Color.orange);
+
+		jlab2.setBounds(50, 70, 300, 30);
+		texto2.setBounds(100, 70, 200, 30);
+		jlab2.setForeground(Color.orange);
+
+		jlab3.setBounds(50, 120, 300, 30);
+		texto3.setBounds(150, 120, 200, 30);
+		jlab3.setForeground(Color.orange);
+
+		jlabb.setBounds(50, 170, 300, 30);
+		box.setBounds(90, 220,150,30);
+		jlabb.setForeground(Color.orange);
 		
-		cri.setBounds(75, 410, 250, 30);
+		cri.setBounds(75, 270, 250, 30);
+		cri.setBackground(Color.orange);
 		
-		f.add(jlab);
-		f.add(c);
-		f.add(jlab1);
-		f.add(d);
-		f.add(jlab2);
-		f.add(e);
-		f.add(jlab3);
-		f.add(jlst);
-		f.add(cri);
+		frame.add(jlab);
+		frame.add(texto1);
+		frame.add(jlab2);
+		frame.add(texto2);
+		frame.add(jlab3);
+		frame.add(texto3);
+		frame.add(jlabb);
+		frame.add(box);
+		frame.add(cri);
 		
-		f.setLayout(null);
-		f.setVisible(true);
+		frame.setLayout(null);
+		frame.setVisible(true);
 	}
 
 	public static void main(String[] args) {
 		AddArtista exemplo = new AddArtista();
-		jlst.addListSelectionListener(exemplo);
+		cri.addActionListener(exemplo);
 
 	}
 
-	public void valueChanged(ListSelectionEvent le) {  
-		// Get the index of the changed item. 
-		//int idx = jlst.getSelectedIndex(); 
-
-		// Mostra o item, caso algum seja selecionada 
-		/*if(idx != -1) 
-			jlab4.setText("Voce selecionou o nome: " + generos[idx]); 
-		// Se nenhum item é selecionado, imprime a mesma mensagem de seleção
-		else
-			jlab4.setText("Por favor, escolha um nome"); */
+	public void actionPerformed(ActionEvent ae) {
+		if (ae.getActionCommand().equals("Adicionar")) {
+			//salva os dados
+		}
 	}
-	
+
 }
-		

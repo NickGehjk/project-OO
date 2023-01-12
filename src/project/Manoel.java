@@ -1,52 +1,62 @@
 package project;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.JFrame;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 public class Manoel implements ListSelectionListener{
-	private static JFrame f;
+	private static JFrame frame;
 
 	private static JLabel jlab;
 	private static JLabel jlab1;
 	private static JLabel jlab2;
 	private static JLabel jlab3;
+	private static JLabel jlab4;
 	
 	private static JList<String> jlst;
 	
-	String generos[] = {"caneta azul", "eu vou deixar de ser besta", 
-						"olha se vc nn me ama", "maura", "Level of Concern",
-						"ela é muito uma vagabunda", "la ele", "girl in red"};
+	String musicas[] = {"caneta azul", "eu vou deixar de ser besta", 
+	"olha se vc nn me ama", "maura", "la ele"};
 	
 	public Manoel() {
-		f = new JFrame("Manoel Gome");
+		frame = new JFrame("Manoel Gome");
 		
 		jlab = new JLabel("Joab Manoel Gomes Caneta Azul");
 		jlab1 = new JLabel("53 anos");
-		jlab2 = new JLabel("Maranhão");
-		jlab3 = new JLabel("Caneta Azul");
+		jlab2 = new JLabel("Brasileiro");
+		jlab3 = new JLabel("forró");
+		jlab4 = new JLabel("Músicas:");
 		
-		jlst = new JList<String>(generos);
-		
+		jlst = new JList<String>(musicas);
 		jlst.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
 		jlst.addListSelectionListener(this);
 		
-		f.setSize(500, 650);
+		frame.setSize(500, 650);
+		frame.getContentPane().setBackground(Color.BLACK);
 		
 		jlab.setBounds(150, 20, 300, 30);
-		jlab1.setBounds(50, 70, 300, 30);
-		jlab2.setBounds(200, 70, 300, 30);
-		jlab3.setBounds(350, 70, 300, 30);
-		jlst.setBounds(100, 135, 300, 250);
+		jlab1.setBounds(70, 70, 300, 30);
+		jlab2.setBounds(190, 70, 300, 30);
+		jlab3.setBounds(340, 70, 300, 30);
+		jlab4.setBounds(80, 110, 300, 30);
+		jlst.setBounds(80, 140, 300, 250);
+		jlab.setForeground(Color.orange);
+		jlab1.setForeground(Color.orange);
+		jlab2.setForeground(Color.orange);
+		jlab3.setForeground(Color.orange);
+		jlab4.setForeground(Color.orange);
 		
-		f.add(jlab);
-		f.add(jlab1);
-		f.add(jlab2);
-		f.add(jlab3);
-		f.add(jlst);
+		frame.add(jlab);
+		frame.add(jlab1);
+		frame.add(jlab2);
+		frame.add(jlab3);
+		frame.add(jlab4);
+		frame.add(jlst);
 		
-		f.setLayout(null);
-		f.setVisible(true);
+		frame.setLayout(null);
+		frame.setVisible(true);
 	}
 
 	public static void main(String[] args) {

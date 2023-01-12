@@ -1,104 +1,97 @@
 package project;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.JFrame;
 //import enumerators.Generos;
 
-public class AddMusica implements ListSelectionListener{
-	private static JFrame f;
+public class AddMusica implements ActionListener{
+	private static JFrame frame;
 
 	private static JLabel jlab;
-	private static JTextField c;
-	private static JLabel jlab1;
-	private static JTextField d;
+	private static JTextField texto1;
 	private static JLabel jlab2;
-	private static JTextField e;
-	private static JLabel jlab4;
-	private static JTextField g;
-	
-	private static JButton cri;
-	
+	private static JTextField texto2;
 	private static JLabel jlab3;
-	private static JList<String> jlst;
+	private static JTextField texto3;
+	private static JLabel jlab4;
+	private static JTextField texto4;
+	private static JLabel jlabb;
+	private static JComboBox box;
+
+	private static JButton cri;
 	
 	String generos[] = {"rock", "pop", "trap", "rap", "funk",
 						"jazz", "MPB", "forró", "gospel"};
 	
 	public AddMusica() {
-		f = new JFrame("Adicionar Música");
+		frame = new JFrame("Adicionar Música");
 		
 		jlab = new JLabel("Nome:");
-		c = new JTextField("");
-		jlab1 = new JLabel("Artista:");
-		d = new JTextField("");
-		jlab2 = new JLabel("Ano:");
-		e = new JTextField("");
+		texto1 = new JTextField("");
+		jlab2 = new JLabel("Artista:");
+		texto2 = new JTextField("");
+		jlab3 = new JLabel("Ano:");
+		texto3 = new JTextField("");
 		jlab4 = new JLabel("Duração:");
-		g = new JTextField("");
-		
-		
-		jlab3 = new JLabel("Gênero musical:");
-		
-		jlst = new JList<String>(generos);
-	
-		jlst.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
-		jlst.addListSelectionListener(this);
+		texto4 = new JTextField("");
+		jlabb = new JLabel("Gênero musical:");
+		box = new JComboBox(generos);
 		
 		cri = new JButton("Adicionar");
 		
-		f.setSize(500, 650);
+		frame.setSize(500, 650);
+		frame.getContentPane().setBackground(Color.BLACK);
 		
 		jlab.setBounds(50, 20, 300, 30);
-		c.setBounds(100, 20, 200, 30);
+		texto1.setBounds(100, 20, 200, 30);
+		jlab.setForeground(Color.orange);
 		
-		jlab1.setBounds(50, 70, 300, 30);
-		d.setBounds(100, 70, 200, 30);
-		
-		jlab2.setBounds(50, 120, 300, 30);
-		e.setBounds(100, 120, 200, 30);
+		jlab2.setBounds(50, 70, 300, 30);
+		texto2.setBounds(100, 70, 200, 30);
+		jlab2.setForeground(Color.orange);
+	
+		jlab3.setBounds(50, 120, 300, 30);
+		texto3.setBounds(100, 120, 200, 30);
+		jlab3.setForeground(Color.orange);
 		
 		jlab4.setBounds(50, 170, 300, 30);
-		g.setBounds(110, 170, 200, 30);
+		texto4.setBounds(110, 170, 200, 30);
+		jlab4.setForeground(Color.orange);
 		
-		jlab3.setBounds(50, 220, 300, 30);
-		jlst.setBounds(120, 270, 130, 169);
+		jlabb.setBounds(50, 220, 300, 30);
+		box.setBounds(90, 270,150,30);
+		jlabb.setForeground(Color.orange);
 		
-		cri.setBounds(75, 500, 250, 30);
+		cri.setBounds(75, 320, 250, 30);
+		cri.setBackground(Color.orange);
 		
-		f.add(jlab);
-		f.add(c);
-		f.add(jlab1);
-		f.add(d);
-		f.add(jlab2);
-		f.add(e);
-		f.add(jlab4);
-		f.add(g);
-		f.add(jlab3);
-		f.add(jlst);
-		f.add(cri);
+		frame.add(jlab);
+		frame.add(texto1);
+		frame.add(jlab2);
+		frame.add(texto2);
+		frame.add(jlab3);
+		frame.add(texto3);
+		frame.add(jlab4);
+		frame.add(texto4);
+		frame.add(jlabb);
+		frame.add(box);
+		frame.add(cri);
 		
-		f.setLayout(null);
-		f.setVisible(true);
+		frame.setLayout(null);
+		frame.setVisible(true);
 	}
 
 	public static void main(String[] args) {
 		AddMusica exemplo = new AddMusica();
-		jlst.addListSelectionListener(exemplo);
+		cri.addActionListener(exemplo);
 
 	}
 
-	public void valueChanged(ListSelectionEvent le) {  
-		// Get the index of the changed item. 
-		//int idx = jlst.getSelectedIndex(); 
-
-		// Mostra o item, caso algum seja selecionada 
-		/*if(idx != -1) 
-			jlab4.setText("Voce selecionou o nome: " + generos[idx]); 
-		// Se nenhum item é selecionado, imprime a mesma mensagem de seleção
-		else
-			jlab4.setText("Por favor, escolha um nome"); */
+	public void actionPerformed(ActionEvent ae) {
+		if (ae.getActionCommand().equals("Adicionar")) {
+			//salva os dados
+		}
 	}
-	
+
 }
-		

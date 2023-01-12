@@ -1,44 +1,52 @@
 package project;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.JFrame;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 public class ExPlaylist implements ListSelectionListener{
-	private static JFrame f;
+	private static JFrame frame;
 
 	private static JLabel jlab;
 	private static JLabel jlab1;
+	private static JLabel jlab2;
 	
 	private static JList<String> jlst;
 	
-	String generos[] = {"caneta azul", "eu vou deixar de ser besta", 
-						"olha se vc nn me ama", "maura", "Level of Concern",
-						"ela é muito uma vagabunda", "la ele", "girl in red"};
+	String musicas[] = {"caneta azul", "eu vou deixar de ser besta", 
+						"olha se vc nn me ama", "maura", "la ele"};
 	
 	public ExPlaylist() {
-		f = new JFrame("Top Hits");
+		frame = new JFrame("Top Hits");
 		
 		jlab = new JLabel("Top Hits");
 		jlab1 = new JLabel("2023");
+		jlab2 = new JLabel("Músicas:");
 		
-		jlst = new JList<String>(generos);
-		
+		jlst = new JList<String>(musicas);
 		jlst.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
 		jlst.addListSelectionListener(this);
 		
-		f.setSize(500, 650);
+		frame.setSize(500, 650);
+		frame.getContentPane().setBackground(Color.BLACK);
 		
-		jlab.setBounds(150, 20, 300, 30);
-		jlab1.setBounds(170, 60, 300, 30);
-		jlst.setBounds(100, 135, 300, 250);
+		jlab.setBounds(190, 20, 300, 30);
+		jlab1.setBounds(200, 60, 300, 30);
+		jlab2.setBounds(80, 90, 300, 30);
+		jlst.setBounds(80, 120, 300, 250);
+		jlab.setForeground(Color.orange);
+		jlab1.setForeground(Color.orange);
+		jlab2.setForeground(Color.orange);
 		
-		f.add(jlab);
-		f.add(jlab1);
-		f.add(jlst);
+		frame.add(jlab);
+		frame.add(jlab1);
+		frame.add(jlab2);
+		frame.add(jlst);
 		
-		f.setLayout(null);
-		f.setVisible(true);
+		frame.setLayout(null);
+		frame.setVisible(true);
 	}
 
 	public static void main(String[] args) {
@@ -47,7 +55,7 @@ public class ExPlaylist implements ListSelectionListener{
 		
 	}
 	
-	public void valueChanged(ListSelectionEvent le) {  
+	public void valueChanged(ListSelectionEvent le) {
 		// Get the index of the changed item. 
 		//int idx = jlst.getSelectedIndex(); 
 
