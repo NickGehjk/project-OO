@@ -8,10 +8,9 @@ import java.awt.event.ActionListener;
 
 public class AddPlaylist implements ActionListener{
 	private static JFrame frame;
-
-	private static JLabel jlab;
+	private static JLabel jlabNome;
 	private static JTextField texto1;
-	private static JLabel jlab2;
+	private static JLabel jlabAno;
 	private static JTextField texto2;
 	
 	private static JButton cri;
@@ -19,9 +18,9 @@ public class AddPlaylist implements ActionListener{
 	public AddPlaylist() {
 		frame = new JFrame("Adicionar Playlist");
 		
-		jlab = new JLabel("Nome:");
+		jlabNome = new JLabel("Nome:");
 		texto1 = new JTextField("");
-		jlab2 = new JLabel("Ano:");
+		jlabAno = new JLabel("Ano:");
 		texto2 = new JTextField("");
 		
 		cri = new JButton("Adicionar");
@@ -29,20 +28,20 @@ public class AddPlaylist implements ActionListener{
 		frame.setSize(500, 650);
 		frame.getContentPane().setBackground(Color.BLACK);
 		
-		jlab.setBounds(50, 20, 300, 30);
+		jlabNome.setBounds(50, 20, 300, 30);
 		texto1.setBounds(100, 20, 200, 30);
-		jlab.setForeground(new Color(255, 77, 0));
+		jlabNome.setForeground(new Color(255, 77, 0));
 
-		jlab2.setBounds(50, 70, 300, 30);
+		jlabAno.setBounds(50, 70, 300, 30);
 		texto2.setBounds(100, 70, 200, 30);
-		jlab2.setForeground(new Color(255, 77, 0));
+		jlabAno.setForeground(new Color(255, 77, 0));
 		
 		cri.setBounds(75, 120, 250, 30);
 		cri.setBackground(new Color(255, 77, 0));
 		
-		frame.add(jlab);
+		frame.add(jlabNome);
 		frame.add(texto1);
-		frame.add(jlab2);
+		frame.add(jlabAno);
 		frame.add(texto2);
 		frame.add(cri);
 		

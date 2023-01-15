@@ -6,54 +6,54 @@ import javax.swing.JFrame;
 
 public class TelaPlaylist implements ActionListener{
 	private static JFrame frame;
-	private static JButton but1;
-	private static JButton but2;
-	private static JButton but3;
+	private static JButton botaoProcurarPlaylist;
+	private static JButton botaoAddPlaylist;
+	private static JButton botaoDeletarPlaylist;
 	private static JLabel jlab;
 	
 	public TelaPlaylist() {
 		frame = new JFrame("Tela Playlist");
-		but1 = new JButton("procurar playlist");
-		but2 = new JButton("add playlist");
-		but3 = new JButton("deletar playlist");
-		
 		frame.setSize(500, 300);
 		frame.getContentPane().setBackground(Color.BLACK);
-		//frame.getContentPane().setBackground(new Color(255, 77, 0));
-
-		but1.setBounds(80, 10, 300, 30);
-		but2.setBounds(80, 60, 300, 30);
-		but3.setBounds(80, 110, 300, 30);
-		but1.setBackground(new Color(255, 77, 0));
-		but2.setBackground(new Color(255, 77, 0));
-		but3.setBackground(new Color(255, 77, 0));
-		//but1.setBackground(Color.black);
-		//but2.setBackground(Color.black);
-		//but3.setBackground(Color.black);
-		//but1.setForeground(new Color(255, 77, 0));
-		//but2.setForeground(new Color(255, 77, 0));
-		//but3.setForeground(new Color(255, 77, 0));
-		
-		frame.add(but1);
-		frame.add(but2);
-		frame.add(but3);
-		
 		jlab = new JLabel("Pressione um botão.");
 		jlab.setSize(300, 375);
 		jlab.setForeground(new Color(255, 77, 0));
-		
 		frame.add(jlab);
-		
 		frame.setLayout(null);
 		frame.setVisible(true);
+		ProcurarPlaylist();
+		AddPlaylist();
+		DeletarPlaylist();
+	}	
+		
+		
+	public void ProcurarPlaylist() {
+		botaoProcurarPlaylist = new JButton("procurar playlist");
+		botaoProcurarPlaylist.setBounds(80, 10, 300, 30);
+		botaoProcurarPlaylist.setBackground(new Color(255, 77, 0));
+		frame.add(botaoProcurarPlaylist);
+	}	
+	
+	public void AddPlaylist() {
+		botaoAddPlaylist = new JButton("add playlist");
+		botaoAddPlaylist.setBounds(80, 60, 300, 30);
+		botaoAddPlaylist.setBackground(new Color(255, 77, 0));
+		frame.add(botaoAddPlaylist);
+		
+	}
+	
+	public void DeletarPlaylist() {
+		botaoDeletarPlaylist = new JButton("deletar playlist");
+		botaoDeletarPlaylist.setBounds(80, 110, 300, 30);
+		botaoDeletarPlaylist.setBackground(new Color(255, 77, 0));
+		frame.add(botaoDeletarPlaylist);
 	}
 
 	public static void main(String[] args) {
 		TelaPlaylist exemplo = new TelaPlaylist();
-		but1.addActionListener(exemplo);
-		but2.addActionListener(exemplo);
-		but3.addActionListener(exemplo);
-
+		botaoProcurarPlaylist.addActionListener(exemplo);
+		botaoAddPlaylist.addActionListener(exemplo);
+		botaoDeletarPlaylist.addActionListener(exemplo);
 	}
 	
 	public void actionPerformed(ActionEvent ae) {
@@ -67,4 +67,6 @@ public class TelaPlaylist implements ActionListener{
 			jlab.setText("JList");
 		}
 	}
-}	
+}
+	
+	

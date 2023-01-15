@@ -9,9 +9,9 @@ import javax.swing.event.ListSelectionListener;
 public class ExPlaylist implements ListSelectionListener{
 	private static JFrame frame;
 
-	private static JLabel jlab;
-	private static JLabel jlab1;
-	private static JLabel jlab2;
+	private static JLabel Hits;
+	private static JLabel Ano;
+	private static JLabel Musicas;
 	
 	private static JList<String> jlst;
 	
@@ -21,9 +21,9 @@ public class ExPlaylist implements ListSelectionListener{
 	public ExPlaylist() {
 		frame = new JFrame("Top Hits");
 		
-		jlab = new JLabel("Top Hits");
-		jlab1 = new JLabel("2023");
-		jlab2 = new JLabel("Músicas:");
+		Hits = new JLabel("Top Hits");
+		Ano = new JLabel("2023");
+		Musicas = new JLabel("Músicas:");
 		
 		jlst = new JList<String>(musicas);
 		jlst.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -32,17 +32,17 @@ public class ExPlaylist implements ListSelectionListener{
 		frame.setSize(500, 650);
 		frame.getContentPane().setBackground(Color.BLACK);
 		
-		jlab.setBounds(190, 20, 300, 30);
-		jlab1.setBounds(200, 60, 300, 30);
-		jlab2.setBounds(80, 90, 300, 30);
+		Hits.setBounds(190, 20, 300, 30);
+		Ano.setBounds(200, 60, 300, 30);
+		Musicas.setBounds(80, 90, 300, 30);
 		jlst.setBounds(80, 120, 300, 250);
-		jlab.setForeground(new Color(255, 77, 0));
-		jlab1.setForeground(new Color(255, 77, 0));
-		jlab2.setForeground(new Color(255, 77, 0));
+		Hits.setForeground(new Color(255, 77, 0));
+		Ano.setForeground(new Color(255, 77, 0));
+		Musicas.setForeground(new Color(255, 77, 0));
 		
-		frame.add(jlab);
-		frame.add(jlab1);
-		frame.add(jlab2);
+		frame.add(Hits);
+		frame.add(Ano);
+		frame.add(Musicas);
 		frame.add(jlst);
 		
 		frame.setLayout(null);
