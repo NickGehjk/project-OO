@@ -4,14 +4,19 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import project.Tela2.TelaMusica;
+
 public class AddArtista implements ActionListener {
 	private static JFrame frame;
+	private static JTextField textoNome;
+	private static JTextField textoIdade;
+	private static JTextField textoNacionalidade;
 
 	String generos[] = { "rock", "pop", "trap", "rap", "funk", "jazz", "MPB", "forró", "gospel" };
 
 	public AddArtista() {
 		frame = new JFrame("Adicionar Artista");
-		frame.setSize(500, 400);
+		frame.setSize(500, 600);
 		frame.setLayout(null);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
@@ -39,7 +44,7 @@ public class AddArtista implements ActionListener {
 	}
 
 	public void textoNome() {
-		JTextField textoNome = new JTextField("");
+		textoNome = new JTextField("");
 		textoNome.setBounds(100, 20, 200, 30);
 		frame.add(textoNome);
 	}
@@ -52,7 +57,7 @@ public class AddArtista implements ActionListener {
 	}
 
 	public void textoIdade() {
-		JTextField textoIdade = new JTextField("");
+		textoIdade = new JTextField("");
 		textoIdade.setBounds(100, 70, 200, 30);
 		frame.add(textoIdade);
 	}
@@ -65,7 +70,7 @@ public class AddArtista implements ActionListener {
 	}
 
 	public void textoNacionalidade() {
-		JTextField textoNacionalidade = new JTextField("");
+		textoNacionalidade = new JTextField("");
 		textoNacionalidade.setBounds(150, 120, 200, 30);
 		frame.add(textoNacionalidade);
 	}
@@ -87,6 +92,8 @@ public class AddArtista implements ActionListener {
 		JButton add = new JButton("Adicionar");
 		add.setBounds(75, 270, 250, 30);
 		add.setBackground(new Color(160, 75, 209, 255));
+		//add.setActionCommand("Adicionar");
+		add.addActionListener(this);
 		frame.add(add);
 	}
 
@@ -97,6 +104,21 @@ public class AddArtista implements ActionListener {
 	public void actionPerformed(ActionEvent ae) {
 		if (ae.getActionCommand().equals("Adicionar")) {
 			// salva os dados
+			String valorNome = textoNome.getText();
+			String valorIda = textoIdade.getText();
+			String valorNac = textoNacionalidade.getText();
+			if(valorNome.isEmpty() || valorIda.isEmpty()
+					|| valorNac.isEmpty()) {
+				//label: dados incorretos
+			} else {
+				//label: dados corretos, musica adicionada
+				new TelaArtista();
+				frame.dispose();
+			}
+		}
+		else if ("voltar" == ae.getActionCommand()) {
+			new TelaArtista();
+			frame.dispose();
 		}
 	}
 

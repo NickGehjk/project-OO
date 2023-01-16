@@ -31,6 +31,7 @@ public class TelaInicial implements ActionListener{
 		frame.setVisible(true);
 		template();
 		construir();
+		//template();
 		//frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
 	}
 	
@@ -52,7 +53,6 @@ public class TelaInicial implements ActionListener{
 	}
 		
 	public void construir() {
-		
 		botaoMusica();
 		botaoArtista();
 		botaoPlaylist();
@@ -93,7 +93,7 @@ public class TelaInicial implements ActionListener{
 	public void actionPerformed(ActionEvent ae) {
 		if ("musica" == ae.getActionCommand()) {
 			frame.dispose();
-			 new TelaMusica();
+			new TelaMusica();
 	}
 		else if ("artista" == ae.getActionCommand()) {
 			frame.dispose();

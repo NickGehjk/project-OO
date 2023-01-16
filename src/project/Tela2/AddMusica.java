@@ -11,8 +11,14 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 //import enumerators.Generos;
 
+//import project.Tela1.TelaInicial;
+
 public class AddMusica implements ActionListener {
 	private static JFrame frame;
+	private static JTextField textoNome;
+	private static JTextField textoArtista;
+	private static JTextField textoAno;
+	private static JTextField textoDuracao;
 
 	public AddMusica() {
 		frame = new JFrame("Adicionar Música");
@@ -37,6 +43,7 @@ public class AddMusica implements ActionListener {
 		textoDuracao();
 		box();
 		botaoAdd();
+		botaoVoltar();
 	}
 
 	public void nome() {
@@ -47,7 +54,7 @@ public class AddMusica implements ActionListener {
 	}
 
 	public void textoNome() {
-		JTextField textoNome = new JTextField("");
+		textoNome = new JTextField("");
 		textoNome.setBounds(140, 20, 200, 30);
 		frame.add(textoNome);
 	}
@@ -60,7 +67,7 @@ public class AddMusica implements ActionListener {
 	}
 
 	public void textoArtista() {
-		JTextField textoArtista = new JTextField("");
+		textoArtista = new JTextField("");
 		textoArtista.setBounds(140, 70, 200, 30);
 		frame.add(textoArtista);
 	}
@@ -73,7 +80,7 @@ public class AddMusica implements ActionListener {
 	}
 
 	public void textoAno() {
-		JTextField textoAno = new JTextField("");
+		textoAno = new JTextField("");
 		textoAno.setBounds(140, 120, 200, 30);
 		frame.add(textoAno);
 	}
@@ -86,7 +93,7 @@ public class AddMusica implements ActionListener {
 	}
 
 	public void textoDuracao() {
-		JTextField textoDuracao = new JTextField("");
+		textoDuracao = new JTextField("");
 		textoDuracao.setBounds(140, 170, 200, 30);
 		frame.add(textoDuracao);
 	}
@@ -114,6 +121,15 @@ public class AddMusica implements ActionListener {
 		botaoAdd.addActionListener(this);
 		frame.add(botaoAdd);
 	}
+	
+	public void botaoVoltar() {
+		JButton botaoVoltar = new JButton("Voltar");
+		botaoVoltar.setBounds(390, 520, 80, 30);
+		botaoVoltar.setBackground(new Color(160,75,209,255));
+		botaoVoltar.setActionCommand("voltar");
+		botaoVoltar.addActionListener(this);
+		frame.add(botaoVoltar);
+	}
 
 	public static void main(String[] args) {
 		new AddMusica();
@@ -122,7 +138,22 @@ public class AddMusica implements ActionListener {
 	public void actionPerformed(ActionEvent ae) {
 		if (ae.getActionCommand().equals("Adicionar")) {
 			// salva os dados
+			String valorNome = textoNome.getText();
+			String valorArt = textoArtista.getText();
+			String valorAno = textoAno.getText(); 
+			String valorDur = textoDuracao.getText();
+			if(valorNome.isEmpty() || valorArt.isEmpty()
+					|| valorAno.isEmpty() || valorDur.isEmpty()) {
+				//label: dados incorretos
+			} else {
+				//label: dados corretos, musica adicionada
+				new TelaMusica();
+				frame.dispose();
+			}
+		}
+		else if ("voltar" == ae.getActionCommand()) {
+			new TelaMusica();
+			frame.dispose();
 		}
 	}
-
 }
