@@ -13,13 +13,14 @@ public class TelaArtista implements ActionListener{
 	
 	public TelaArtista() {
 		frame = new JFrame("Tela Artista");
-		frame.setSize(500, 300);
-		frame.getContentPane().setBackground(Color.BLACK);
+		frame.setSize(500, 400);
+		frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
 		jlab = new JLabel("Pressione um botão.");
 		jlab.setSize(300, 375);
-		jlab.setForeground(new Color(255, 77, 0));
+		jlab.setForeground(new Color(160,75,209,255));
 		frame.add(jlab);
 		frame.setLayout(null);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		botaoProcurar();
 		botaoAdd();
@@ -28,34 +29,34 @@ public class TelaArtista implements ActionListener{
 	}
 	
 	public void botaoProcurar() {
-		botaoProcurar = new JButton("procurar artista");
+		botaoProcurar = new JButton("Procurar Artista");
 		botaoProcurar.setBounds(80, 10, 300, 30);
-		botaoProcurar.setBackground(new Color(255, 77, 0));
+		botaoProcurar.setBackground(new Color(160,75,209,255));
+		botaoProcurar.setActionCommand("procurar artista");
+		botaoProcurar.addActionListener(this);
 		frame.add(botaoProcurar);
 	}
 	
 	public void botaoAdd() {
-		botaoAdd = new JButton("add artista");
+		botaoAdd = new JButton("Add Artista");
 		botaoAdd.setBounds(80, 60, 300, 30);
-		botaoAdd.setBackground(new Color(255, 77, 0));
+		botaoAdd.setBackground(new Color(160,75,209,255));
+		botaoAdd.setActionCommand("add artista");
+		botaoAdd.addActionListener(this);
 		frame.add(botaoAdd);
 	}
 		
 	public void botaoDeletar() {
-		botaoDeletar = new JButton("deletar artista");
+		botaoDeletar = new JButton("Deletar Artista");
 		botaoDeletar.setBounds(80, 110, 300, 30);
-		botaoDeletar.setBackground(new Color(255, 77, 0));
+		botaoDeletar.setBackground(new Color(160,75,209,255));
+		botaoDeletar.setActionCommand("deletar artista");
+		botaoDeletar.addActionListener(this);
 		frame.add(botaoDeletar);
 	}
 		
-		
-
 	public static void main(String[] args) {
-		TelaArtista exemplo = new TelaArtista();
-		botaoProcurar.addActionListener(exemplo);
-		botaoAdd.addActionListener(exemplo);
-		botaoDeletar.addActionListener(exemplo);
-
+		 new TelaArtista();
 	}
 	
 	public void actionPerformed(ActionEvent ae) {

@@ -1,9 +1,13 @@
 package project.Tela1;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,31 +23,44 @@ public class TelaInicial implements ActionListener{
 	private static JButton botaoArtista;
 	private static JButton botaoPlaylist;
 	
-	
 	public TelaInicial() {
 		frame = new JFrame("Tela inicial");
-		frame.setSize(500, 400);
-		frame.getContentPane().setBackground(Color.BLACK);
+		frame.setSize(500, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(null);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		//imageGengar();
+		template();
+		construir();
+		//frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
+	}
+	
+	public void template() {
+		try {
+			BufferedImage img = ImageIO.read(getClass().getResource("/imagem/KengaTemplate2.jpg"));
+			Image dimg = img.getScaledInstance(500, 600, Image.SCALE_SMOOTH);
+			ImageIcon icon = new ImageIcon(dimg);
+			JLabel label = new JLabel();
+			label.setIcon(icon);
+			frame.getContentPane().add(label, BorderLayout.CENTER);
+			frame.setContentPane(label);
+			frame.pack();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
+		
+	public void construir() {
+		
 		botaoMusica();
 		botaoArtista();
 		botaoPlaylist();
 	}
 	
-	/*public void imageGengar() {
-		ImageIcon gengar = new ImageIcon("/Imagem/GengarMusic.png");
-		JLabel label = new JLabel();
-		label.setIcon(gengar);
-		frame.add(label);
-		frame.pack();
-	}
-		*/
 	public void botaoMusica() {
-		botaoMusica = new JButton("musica");
-		botaoMusica.setBounds(80, 200, 300, 30);
+		botaoMusica = new JButton("Músicas");
+		botaoMusica.setBounds(105, 350, 300, 30);
 		botaoMusica.setBackground(new Color(160,75,209,255));
 		botaoMusica.setActionCommand("musica");
 		botaoMusica.addActionListener(this);
@@ -51,8 +68,8 @@ public class TelaInicial implements ActionListener{
 	}
 		
 	public void botaoArtista() {
-		botaoArtista = new JButton("artista");
-		botaoArtista.setBounds(80, 250, 300, 30);
+		botaoArtista = new JButton("Artistas");
+		botaoArtista.setBounds(105, 400, 300, 30);
 		botaoArtista.setBackground(new Color(160,75,209,255));
 		botaoArtista.setActionCommand("artista");
 		botaoArtista.addActionListener(this);
@@ -60,8 +77,8 @@ public class TelaInicial implements ActionListener{
 	}
 	
 	public void botaoPlaylist() {
-		botaoPlaylist = new JButton("playlist");
-		botaoPlaylist.setBounds(80, 300, 300, 30);
+		botaoPlaylist = new JButton("Playlists");
+		botaoPlaylist.setBounds(105, 450, 300, 30);
 		botaoPlaylist.setBackground(new Color(160,75,209,255));
 		botaoPlaylist.setActionCommand("playlist");
 		botaoPlaylist.addActionListener(this);
@@ -69,25 +86,31 @@ public class TelaInicial implements ActionListener{
 	}
 		
 	public static void main(String[] args) {
-		TelaInicial exemplo = new TelaInicial();
-		botaoMusica.addActionListener(exemplo);
-		botaoArtista.addActionListener(exemplo);
-		botaoPlaylist.addActionListener(exemplo);
+		 new TelaInicial();
 		
 	}
 	
 	public void actionPerformed(ActionEvent ae) {
 		if ("musica" == ae.getActionCommand()) {
+			frame.dispose();
 			 new TelaMusica();
-	         frame.dispose();
 	}
 		else if ("artista" == ae.getActionCommand()) {
-			new TelaArtista();
 			frame.dispose();
+			new TelaArtista();
 	}
 		else if ("playlist" == ae.getActionCommand()) {
-			new TelaPlaylist();
 			frame.dispose();
+			new TelaPlaylist();
 		}	
 	}
 }
+
+/*public void botaoVoltar() {
+	JButton botaoVoltar = new JButton("Voltar");
+	botaoVoltar.setBounds(10, 10, 80, 30);
+	botaoVoltar.setBackground(new Color(160,75,209,255));
+	botaoVoltar.setActionCommand("voltar");
+	botaoVoltar.addActionListener(this);
+	frame.add(botaoVoltar);
+}*/

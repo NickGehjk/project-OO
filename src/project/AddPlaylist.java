@@ -8,50 +8,67 @@ import java.awt.event.ActionListener;
 
 public class AddPlaylist implements ActionListener{
 	private static JFrame frame;
-	private static JLabel jlabNome;
-	private static JTextField texto1;
-	private static JLabel jlabAno;
-	private static JTextField texto2;
+	private static JLabel nome;
+	private static JTextField textoNome;
+	private static JLabel ano;
+	private static JTextField textoAno;
 	
-	private static JButton cri;
+	private static JButton add;
 	
 	public AddPlaylist() {
 		frame = new JFrame("Adicionar Playlist");
-		
-		jlabNome = new JLabel("Nome:");
-		texto1 = new JTextField("");
-		jlabAno = new JLabel("Ano:");
-		texto2 = new JTextField("");
-		
-		cri = new JButton("Adicionar");
-		
-		frame.setSize(500, 650);
-		frame.getContentPane().setBackground(Color.BLACK);
-		
-		jlabNome.setBounds(50, 20, 300, 30);
-		texto1.setBounds(100, 20, 200, 30);
-		jlabNome.setForeground(new Color(255, 77, 0));
-
-		jlabAno.setBounds(50, 70, 300, 30);
-		texto2.setBounds(100, 70, 200, 30);
-		jlabAno.setForeground(new Color(255, 77, 0));
-		
-		cri.setBounds(75, 120, 250, 30);
-		cri.setBackground(new Color(255, 77, 0));
-		
-		frame.add(jlabNome);
-		frame.add(texto1);
-		frame.add(jlabAno);
-		frame.add(texto2);
-		frame.add(cri);
-		
+		frame.setSize(500, 600);
 		frame.setLayout(null);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		construir();
+		frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
+	}
+	
+	public void construir() {
+		nome();
+		textoNome();
+		ano();
+		textoAno();
+		add();
+	}
+	
+	public void nome() {
+		nome = new JLabel("Nome:");
+		nome.setBounds(50, 20, 300, 30);
+		nome.setForeground(new Color(160,75,209,255));
+		frame.add(nome);
+	}
+	
+	public void textoNome() {
+		textoNome = new JTextField("");
+		textoNome.setBounds(100, 20, 200, 30);
+		frame.add(textoNome);
+	}
+	
+	public void ano() {
+		ano = new JLabel("Ano:");
+		ano.setBounds(50, 70, 300, 30);
+		ano.setForeground(new Color(160,75,209,255));
+		frame.add(ano);
+	}
+	
+	public void textoAno() {
+		textoAno = new JTextField("");
+		textoAno.setBounds(100, 70, 200, 30);
+		frame.add(textoAno);
+	}
+	
+	public void add() {
+		add = new JButton("Adicionar");
+		add.setBounds(75, 120, 250, 30);
+		add.setBackground(new Color(160,75,209,255));
+		frame.add(add);
 	}
 
 	public static void main(String[] args) {
 		AddPlaylist exemplo = new AddPlaylist();
-		cri.addActionListener(exemplo);
+		add.addActionListener(exemplo);
 		
 	}
 	

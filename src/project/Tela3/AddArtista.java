@@ -1,85 +1,102 @@
 package project.Tela3;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.JFrame;
 
-public class AddArtista implements ActionListener{
+public class AddArtista implements ActionListener {
 	private static JFrame frame;
 
-	private static JLabel jlabNome;
-	private static JTextField texto1;
-	private static JLabel jlabIdade;
-	private static JTextField texto2;
-	private static JLabel jlabNacional;
-	private static JTextField texto3;
-	private static JLabel jlabGenero;
-	private static JComboBox box;
-	
-	private static JButton cri;
-	
-	String generos[] = {"rock", "pop", "trap", "rap", "funk",
-						"jazz", "MPB", "forró", "gospel"};
-	
+	String generos[] = { "rock", "pop", "trap", "rap", "funk", "jazz", "MPB", "forró", "gospel" };
+
 	public AddArtista() {
 		frame = new JFrame("Adicionar Artista");
-		
-		jlabNome = new JLabel("Nome:");
-		texto1 = new JTextField("");
-		jlabIdade = new JLabel("Idade:");
-		texto2 = new JTextField("");
-		jlabNacional = new JLabel("Nacionalidade:");
-		texto3 = new JTextField("");
-		jlabGenero = new JLabel("Gênero musical:");
-		box = new JComboBox(generos);
-		
-		cri = new JButton("Adicionar");
-		
-		frame.setSize(500, 650);
-		frame.getContentPane().setBackground(Color.BLACK);
-		
-		jlabNome.setBounds(50, 20, 300, 30);
-		texto1.setBounds(100, 20, 200, 30);
-		jlabNome.setForeground(new Color(255, 77, 0));
-
-		jlabIdade.setBounds(50, 70, 300, 30);
-		texto2.setBounds(100, 70, 200, 30);
-		jlabIdade.setForeground(new Color(255, 77, 0));
-
-		jlabNacional.setBounds(50, 120, 300, 30);
-		texto3.setBounds(150, 120, 200, 30);
-		jlabNacional.setForeground(new Color(255, 77, 0));
-
-		jlabGenero.setBounds(50, 170, 300, 30);
-		box.setBounds(90, 220,150,30);
-		jlabGenero.setForeground(new Color(255, 77, 0));
-		
-		cri.setBounds(75, 270, 250, 30);
-		cri.setBackground(new Color(255, 77, 0));
-		
-		frame.add(jlabNome);
-		frame.add(texto1);
-		frame.add(jlabIdade);
-		frame.add(texto2);
-		frame.add(jlabNacional);
-		frame.add(texto3);
-		frame.add(jlabGenero);
-		frame.add(box);
-		frame.add(cri);
-		
+		frame.setSize(500, 400);
 		frame.setLayout(null);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		construir();
+		frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
+	}
+
+	public void construir() {
+		nome();
+		idade();
+		nacionalidade();
+		genero();
+		box();
+		textoNome();
+		textoIdade();
+		textoNacionalidade();
+		add();
+	}
+	
+	public void nome() {
+		JLabel nome = new JLabel("Nome:");
+		nome.setBounds(50, 20, 300, 30);
+		nome.setForeground(new Color(160, 75, 209, 255));
+		frame.add(nome);
+	}
+
+	public void textoNome() {
+		JTextField textoNome = new JTextField("");
+		textoNome.setBounds(100, 20, 200, 30);
+		frame.add(textoNome);
+	}
+
+	public void idade() {
+		JLabel idade = new JLabel("Idade:");
+		idade.setBounds(50, 70, 300, 30);
+		idade.setForeground(new Color(160, 75, 209, 255));
+		frame.add(idade);
+	}
+
+	public void textoIdade() {
+		JTextField textoIdade = new JTextField("");
+		textoIdade.setBounds(100, 70, 200, 30);
+		frame.add(textoIdade);
+	}
+
+	public void nacionalidade() {
+		JLabel nacionalidade = new JLabel("Nacionalidade:");
+		nacionalidade.setBounds(50, 120, 300, 30);
+		nacionalidade.setForeground(new Color(160, 75, 209, 255));
+		frame.add(nacionalidade);
+	}
+
+	public void textoNacionalidade() {
+		JTextField textoNacionalidade = new JTextField("");
+		textoNacionalidade.setBounds(150, 120, 200, 30);
+		frame.add(textoNacionalidade);
+	}
+
+	public void genero() {
+		JLabel genero = new JLabel("Gênero musical:");
+		genero.setBounds(50, 170, 300, 30);
+		genero.setForeground(new Color(160, 75, 209, 255));
+		frame.add(genero);
+	}
+
+	public void box() {
+		JComboBox<String> box = new JComboBox<>(generos);
+		box.setBounds(90, 220, 150, 30);
+		frame.add(box);
+	}
+
+	public void add() {
+		JButton add = new JButton("Adicionar");
+		add.setBounds(75, 270, 250, 30);
+		add.setBackground(new Color(160, 75, 209, 255));
+		frame.add(add);
 	}
 
 	public static void main(String[] args) {
-		AddArtista exemplo = new AddArtista();
-		cri.addActionListener(exemplo);
-
+		 new AddArtista();
 	}
 
 	public void actionPerformed(ActionEvent ae) {
 		if (ae.getActionCommand().equals("Adicionar")) {
-			//salva os dados
+			// salva os dados
 		}
 	}
 

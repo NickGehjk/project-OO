@@ -8,60 +8,77 @@ import javax.swing.event.ListSelectionListener;
 
 public class Manoel implements ListSelectionListener{
 	private static JFrame frame;
-
-	private static JLabel jlab;
-	private static JLabel jlab1;
-	private static JLabel jlab2;
-	private static JLabel jlab3;
-	private static JLabel jlab4;
-	
-	private static JList<String> jlst;
+	private static JList<String> lista;
 	
 	String musicas[] = {"caneta azul", "eu vou deixar de ser besta", 
 	"olha se vc nn me ama", "maura", "la ele"};
 	
 	public Manoel() {
 		frame = new JFrame("Manoel Gome");
-		
-		jlab = new JLabel("Joab Manoel Gomes Caneta Azul");
-		jlab1 = new JLabel("53 anos");
-		jlab2 = new JLabel("Brasileiro");
-		jlab3 = new JLabel("forró");
-		jlab4 = new JLabel("Músicas:");
-		
-		jlst = new JList<String>(musicas);
-		jlst.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		jlst.addListSelectionListener(this);
-		
-		frame.setSize(500, 650);
-		frame.getContentPane().setBackground(Color.BLACK);
-		
-		jlab.setBounds(150, 20, 300, 30);
-		jlab1.setBounds(70, 70, 300, 30);
-		jlab2.setBounds(190, 70, 300, 30);
-		jlab3.setBounds(340, 70, 300, 30);
-		jlab4.setBounds(80, 110, 300, 30);
-		jlst.setBounds(80, 140, 300, 250);
-		jlab.setForeground(new Color(255, 77, 0));
-		jlab1.setForeground(new Color(255, 77, 0));
-		jlab2.setForeground(new Color(255, 77, 0));
-		jlab3.setForeground(new Color(255, 77, 0));
-		jlab4.setForeground(new Color(255, 77, 0));
-		
-		frame.add(jlab);
-		frame.add(jlab1);
-		frame.add(jlab2);
-		frame.add(jlab3);
-		frame.add(jlab4);
-		frame.add(jlst);
-		
+		frame.setSize(500, 400);
 		frame.setLayout(null);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		construir();
+		frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
+
+	}
+	
+	public void construir() {
+		nome();
+		idade();
+		nacionalidade();
+		genero();
+		musica();
+		lista();
+	}
+		
+	public void nome() {
+		JLabel nome = new JLabel("Joab Manoel Gomes Caneta Azul");
+		nome.setBounds(150, 20, 300, 30);
+		nome.setForeground(new Color(160,75,209,255));
+		frame.add(nome);
+	}
+		
+	public void idade() {
+		JLabel idade = new JLabel("53 anos");
+		idade.setBounds(70, 70, 300, 30);
+		idade.setForeground(new Color(160,75,209,255));
+		frame.add(idade);
+	}
+		
+	public void nacionalidade() {
+		JLabel nacionalidade = new JLabel("Brasileiro");
+		nacionalidade.setBounds(190, 70, 300, 30);
+		nacionalidade.setForeground(new Color(160,75,209,255));
+		frame.add(nacionalidade);
+	}
+	
+	public void genero() {
+		JLabel genero = new JLabel("forró");
+		genero.setBounds(340, 70, 300, 30);
+		genero.setForeground(new Color(160,75,209,255));
+		frame.add(genero);
+	}		
+	
+	public void musica() {
+		JLabel musica = new JLabel("Músicas:");
+		musica.setBounds(80, 110, 300, 30);
+		musica.setForeground(new Color(160,75,209,255));
+		frame.add(musica);
+	}
+	
+	public void lista() {
+		lista = new JList<String>(musicas);
+		lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		lista.addListSelectionListener(this);
+		lista.setBounds(80, 140, 300, 150);
+		frame.add(lista);
 	}
 
 	public static void main(String[] args) {
 		Manoel exemplo = new Manoel();
-		jlst.addListSelectionListener(exemplo);
+		lista.addListSelectionListener(exemplo);
 		
 	}
 	

@@ -6,84 +6,102 @@ import javax.swing.JFrame;
 
 public class Level implements ActionListener{
 	private static JFrame frame;
+	private static JTextArea letra;
 	private static JButton botaoEditar;
 	private static JButton botaoDeletar;
 	private static JButton botaoSalvar;
-	private static JLabel Nome;
-	private static JLabel NomeMusica;
-	private static JLabel Ano;
-	private static JLabel Duracao;
-	private static JLabel Genero;
-	
-	private static JTextArea letra;
 	
 	public Level() {
 		frame = new JFrame("Level of Concern");
 		frame.setSize(500, 600);
-		frame.getContentPane().setBackground(Color.BLACK);
-		Nome = new JLabel("Level of Concern");
-		NomeMusica = new JLabel("Twenty one Pilots");
-		Ano = new JLabel("2020");
-		Duracao = new JLabel("3:52");
-		Genero = new JLabel("rock");
+		frame.setLayout(null);
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		construir();
+		frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
+	}
+	
+	public void construir() {
+		botaoEditar();
+		botaoDeletar();
+		botaoSalvar();
+		nome();
+		nomeMusica();
+		ano();
+		duracao();
+		genero();
+		letra();
+	}
+	
+	public void nome() {	
+		JLabel nome = new JLabel("Level of Concern");
+		nome.setBounds(180, 10, 300, 30);
+		nome.setForeground(new Color(160,75,209,255));
+		frame.add(nome);
+	}
+	
+	public void nomeMusica() {
+		JLabel nomeMusica = new JLabel("Twenty one Pilots");
+		nomeMusica.setBounds(50, 50, 300, 30);
+		nomeMusica.setForeground(new Color(160,75,209,255));
+		frame.add(nomeMusica);
+	}
 		
-		/*Cause I told you my level of concern\r\n"
-		+ "But you walked by like you never heard\r\n"
-		+ "and you could bring down my level of concern\r\n"
-		+ "Just need you to tell me we're alright\r\n"
-		+ "Tell me we're okay, yeah*/
+	public void ano() {
+		JLabel ano = new JLabel("2020");
+		ano.setBounds(200, 50, 300, 30);
+		ano.setForeground(new Color(160,75,209,255));
+		frame.add(ano);
+	}
 		
+	public void duracao() {
+		JLabel duracao = new JLabel("3:52");
+		duracao.setBounds(300, 50, 300, 30);
+		duracao.setForeground(new Color(160,75,209,255));
+		frame.add(duracao);
+	}
+		
+	public void genero() {
+		JLabel genero = new JLabel("rock");
+		genero.setBounds(400, 50, 300, 30);
+		genero.setForeground(new Color(160,75,209,255));
+		frame.add(genero);
+	}
+	
+	public void letra() {
 		letra = new JTextArea("");
-		
 		letra.setLineWrap(true);
 		letra.setEditable(false);
-
-		botaoEditar = new JButton("editar letra");
-		botaoDeletar = new JButton("deletar letra");
-		botaoSalvar = new JButton("salvar");
-		
-		Nome.setBounds(180, 10, 300, 30);
-		NomeMusica.setBounds(50, 50, 300, 30);
-		Ano.setBounds(200, 50, 300, 30);
-		Duracao.setBounds(300, 50, 300, 30);
-		Genero.setBounds(400, 50, 300, 30);
-		Nome.setForeground(new Color(255, 77, 0));
-		NomeMusica.setForeground(new Color(255, 77, 0));
-		Ano.setForeground(new Color(255, 77, 0));
-		Duracao.setForeground(new Color(255, 77, 0));
-		Genero.setForeground(new Color(255, 77, 0));
-		
 		letra.setBounds(50, 90, 400, 300);
-		
-		botaoEditar.setBounds(90, 400, 300, 30);
-		botaoDeletar.setBounds(90, 450, 300, 30);
-		botaoSalvar.setBounds(90, 500, 300, 30);
-		botaoEditar.setBackground(new Color(255, 77, 0));
-		botaoDeletar.setBackground(new Color(255, 77, 0));
-		botaoSalvar.setBackground(new Color(255, 77, 0));
-		
-		frame.add(Nome);
-		frame.add(NomeMusica);
-		frame.add(Ano);
-		frame.add(Duracao);
-		frame.add(Genero);
-		
 		frame.add(letra);
-		
-		frame.add(botaoEditar);
-		frame.add(botaoDeletar);
-		frame.add(botaoSalvar);
-		
-		frame.setLayout(null);
-		frame.setVisible(true);
 	}
 
+	public void botaoEditar() {
+		botaoEditar = new JButton("editar letra");
+		botaoEditar.setBounds(90, 400, 300, 30);
+		botaoEditar.setBackground(new Color(160,75,209,255));
+		frame.add(botaoEditar);
+	}
+	
+	public void botaoDeletar() {	
+		botaoDeletar = new JButton("deletar letra");
+		botaoDeletar.setBounds(90, 450, 300, 30);
+		botaoDeletar.setBackground(new Color(160,75,209,255));
+		frame.add(botaoDeletar);
+	}
+		
+	public void botaoSalvar() {
+		botaoSalvar = new JButton("salvar");
+		botaoSalvar.setBounds(90, 500, 300, 30);
+		botaoSalvar.setBackground(new Color(160,75,209,255));
+		frame.add(botaoSalvar);
+	}
+		
 	public static void main(String[] args) {
-		Level exemplo = new Level();
-		botaoEditar.addActionListener(exemplo);
-		botaoDeletar.addActionListener(exemplo);
-		botaoSalvar.addActionListener(exemplo);
-
+		 Level exemplo = new Level();
+		 botaoEditar.addActionListener(exemplo);
+		 botaoDeletar.addActionListener(exemplo);
+		 botaoSalvar.addActionListener(exemplo);
 	}
 	
 	public void actionPerformed(ActionEvent ae) {

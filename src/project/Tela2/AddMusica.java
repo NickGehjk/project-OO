@@ -1,96 +1,127 @@
 package project.Tela2;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 //import enumerators.Generos;
 
-public class AddMusica implements ActionListener{
+public class AddMusica implements ActionListener {
 	private static JFrame frame;
 
-	private static JLabel jlab;
-	private static JTextField texto1;
-	private static JLabel jlab2;
-	private static JTextField texto2;
-	private static JLabel jlab3;
-	private static JTextField texto3;
-	private static JLabel jlab4;
-	private static JTextField texto4;
-	private static JLabel jlabb;
-	private static JComboBox box;
-
-	private static JButton cri;
-	
-	String generos[] = {"rock", "pop", "trap", "rap", "funk",
-						"jazz", "MPB", "forró", "gospel"};
-	
 	public AddMusica() {
 		frame = new JFrame("Adicionar Música");
-		
-		jlab = new JLabel("Nome:");
-		texto1 = new JTextField("");
-		jlab2 = new JLabel("Artista:");
-		texto2 = new JTextField("");
-		jlab3 = new JLabel("Ano:");
-		texto3 = new JTextField("");
-		jlab4 = new JLabel("Duração:");
-		texto4 = new JTextField("");
-		jlabb = new JLabel("Gênero musical:");
-		box = new JComboBox(generos);
-		
-		cri = new JButton("Adicionar");
-		
-		frame.setSize(500, 650);
-		frame.getContentPane().setBackground(Color.BLACK);
-		
-		jlab.setBounds(50, 20, 300, 30);
-		texto1.setBounds(100, 20, 200, 30);
-		jlab.setForeground(new Color(255, 77, 0));
-		
-		jlab2.setBounds(50, 70, 300, 30);
-		texto2.setBounds(100, 70, 200, 30);
-		jlab2.setForeground(new Color(255, 77, 0));
-	
-		jlab3.setBounds(50, 120, 300, 30);
-		texto3.setBounds(100, 120, 200, 30);
-		jlab3.setForeground(new Color(255, 77, 0));
-		
-		jlab4.setBounds(50, 170, 300, 30);
-		texto4.setBounds(110, 170, 200, 30);
-		jlab4.setForeground(new Color(255, 77, 0));
-		
-		jlabb.setBounds(50, 220, 300, 30);
-		box.setBounds(90, 270,150,30);
-		jlabb.setForeground(new Color(255, 77, 0));
-		
-		cri.setBounds(75, 320, 250, 30);
-		cri.setBackground(new Color(255, 77, 0));
-		
-		frame.add(jlab);
-		frame.add(texto1);
-		frame.add(jlab2);
-		frame.add(texto2);
-		frame.add(jlab3);
-		frame.add(texto3);
-		frame.add(jlab4);
-		frame.add(texto4);
-		frame.add(jlabb);
-		frame.add(box);
-		frame.add(cri);
-		
+		frame.setSize(500, 600);
 		frame.setLayout(null);
+		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		frame.setResizable(true);
+		construir();
+		frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
+	}
+
+	public void construir() {
+		nome();
+		artista();
+		ano();
+		duracao();
+		genero();
+		textoNome();
+		textoArtista();
+		textoAno();
+		textoDuracao();
+		box();
+		botaoAdd();
+	}
+
+	public void nome() {
+		JLabel nome = new JLabel("Nome:");
+		nome.setBounds(90, 20, 300, 30);
+		nome.setForeground(new Color(160, 75, 209, 255));
+		frame.add(nome);
+	}
+
+	public void textoNome() {
+		JTextField textoNome = new JTextField("");
+		textoNome.setBounds(140, 20, 200, 30);
+		frame.add(textoNome);
+	}
+
+	public void artista() {
+		JLabel artista = new JLabel("Artista:");
+		artista.setBounds(90, 70, 300, 30);
+		artista.setForeground(new Color(160, 75, 209, 255));
+		frame.add(artista);
+	}
+
+	public void textoArtista() {
+		JTextField textoArtista = new JTextField("");
+		textoArtista.setBounds(140, 70, 200, 30);
+		frame.add(textoArtista);
+	}
+
+	public void ano() {
+		JLabel ano = new JLabel("Ano:");
+		ano.setBounds(90, 120, 300, 30);
+		ano.setForeground(new Color(160, 75, 209, 255));
+		frame.add(ano);
+	}
+
+	public void textoAno() {
+		JTextField textoAno = new JTextField("");
+		textoAno.setBounds(140, 120, 200, 30);
+		frame.add(textoAno);
+	}
+
+	public void duracao() {
+		JLabel duracao = new JLabel("Duração:");
+		duracao.setBounds(90, 170, 300, 30);
+		duracao.setForeground(new Color(160, 75, 209, 255));
+		frame.add(duracao);
+	}
+
+	public void textoDuracao() {
+		JTextField textoDuracao = new JTextField("");
+		textoDuracao.setBounds(140, 170, 200, 30);
+		frame.add(textoDuracao);
+	}
+
+	public void genero() {
+		JLabel genero = new JLabel("Gênero musical:");
+		genero.setBounds(90, 220, 300, 30);
+		genero.setForeground(new Color(160, 75, 209, 255));
+		frame.add(genero);
+	}
+
+	public void box() {
+		String generos[] = { "rock", "pop", "trap", "rap", "funk", "jazz", "MPB", "forró", "gospel" };
+		JComboBox<String> box = new JComboBox<>(generos);
+		box.setBounds(140, 260, 150, 30);
+		frame.add(box);
+
+	}
+
+	public void botaoAdd() {
+		JButton botaoAdd = new JButton("Adicionar");
+		botaoAdd.setBounds(90, 320, 250, 30);
+		botaoAdd.setBackground(new Color(160, 75, 209, 255));
+		botaoAdd.setActionCommand("Adicionar");
+		botaoAdd.addActionListener(this);
+		frame.add(botaoAdd);
 	}
 
 	public static void main(String[] args) {
-		AddMusica exemplo = new AddMusica();
-		cri.addActionListener(exemplo);
-
+		new AddMusica();
 	}
 
 	public void actionPerformed(ActionEvent ae) {
 		if (ae.getActionCommand().equals("Adicionar")) {
-			//salva os dados
+			// salva os dados
 		}
 	}
 
