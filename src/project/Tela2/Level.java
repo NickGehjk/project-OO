@@ -1,8 +1,8 @@
 package project.Tela2;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.JFrame;
 
 public class Level implements ActionListener{
 	private static JFrame frame;
@@ -13,7 +13,7 @@ public class Level implements ActionListener{
 	
 	public Level() {
 		frame = new JFrame("Level of Concern");
-		frame.setSize(500, 600);
+		frame.setSize(500, 700);
 		frame.setLayout(null);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
@@ -22,15 +22,16 @@ public class Level implements ActionListener{
 	}
 	
 	public void construir() {
-		botaoEditar();
-		botaoDeletar();
-		botaoSalvar();
 		nome();
 		nomeMusica();
 		ano();
 		duracao();
 		genero();
 		letra();
+		botaoEditar();
+		botaoDeletar();
+		botaoSalvar();
+		botaoVoltar();
 	}
 	
 	public void nome() {	
@@ -72,47 +73,60 @@ public class Level implements ActionListener{
 		letra = new JTextArea("");
 		letra.setLineWrap(true);
 		letra.setEditable(false);
-		letra.setBounds(50, 90, 400, 300);
+		letra.setBounds(50, 90, 400, 370);
 		frame.add(letra);
 	}
 
 	public void botaoEditar() {
 		botaoEditar = new JButton("editar letra");
-		botaoEditar.setBounds(90, 400, 300, 30);
+		botaoEditar.setBounds(90, 470, 300, 30);
 		botaoEditar.setBackground(new Color(160,75,209,255));
+		botaoEditar.addActionListener(this);
 		frame.add(botaoEditar);
 	}
 	
 	public void botaoDeletar() {	
 		botaoDeletar = new JButton("deletar letra");
-		botaoDeletar.setBounds(90, 450, 300, 30);
+		botaoDeletar.setBounds(90, 520, 300, 30);
 		botaoDeletar.setBackground(new Color(160,75,209,255));
+		botaoDeletar.addActionListener(this);
 		frame.add(botaoDeletar);
 	}
 		
 	public void botaoSalvar() {
 		botaoSalvar = new JButton("salvar");
-		botaoSalvar.setBounds(90, 500, 300, 30);
+		botaoSalvar.setBounds(90, 570, 300, 30);
 		botaoSalvar.setBackground(new Color(160,75,209,255));
+		botaoSalvar.addActionListener(this);
 		frame.add(botaoSalvar);
+	}
+
+	public void botaoVoltar() {
+		JButton botaoVoltar = new JButton("Voltar");
+		botaoVoltar.setBounds(390, 620, 80, 30);
+		botaoVoltar.setBackground(new Color(160,75,209,255));
+		botaoVoltar.setActionCommand("voltar");
+		botaoVoltar.addActionListener(this);
+		frame.add(botaoVoltar);
 	}
 		
 	public static void main(String[] args) {
-		 Level exemplo = new Level();
-		 botaoEditar.addActionListener(exemplo);
-		 botaoDeletar.addActionListener(exemplo);
-		 botaoSalvar.addActionListener(exemplo);
+		new Level();
 	}
 	
 	public void actionPerformed(ActionEvent ae) {
 		if (ae.getActionCommand().equals("editar letra")) {
 			letra.setEditable(true);
-	}
+		}
 		else if (ae.getActionCommand().equals("deletar letra")) {
 			letra.setText("");
-	}
-		else {
+		}
+		else if (ae.getActionCommand().equals("salvar letra")){
 			letra.setEditable(false);
+		}
+		else if ("voltar" == ae.getActionCommand()) {
+			new TelaMusica();
+			frame.dispose();
 		}
 	}
 }	

@@ -1,17 +1,9 @@
 package project.Tela2;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 //import enumerators.Generos;
-
-//import project.Tela1.TelaInicial;
 
 public class AddMusica implements ActionListener {
 	private static JFrame frame;
@@ -19,6 +11,9 @@ public class AddMusica implements ActionListener {
 	private static JTextField textoArtista;
 	private static JTextField textoAno;
 	private static JTextField textoDuracao;
+	
+	private static JButton add;
+	private static JLabel valid;
 
 	public AddMusica() {
 		frame = new JFrame("Adicionar Música");
@@ -42,7 +37,8 @@ public class AddMusica implements ActionListener {
 		textoAno();
 		textoDuracao();
 		box();
-		botaoAdd();
+		add();
+		valid();
 		botaoVoltar();
 	}
 
@@ -55,7 +51,7 @@ public class AddMusica implements ActionListener {
 
 	public void textoNome() {
 		textoNome = new JTextField("");
-		textoNome.setBounds(140, 20, 200, 30);
+		textoNome.setBounds(150, 20, 200, 30);
 		frame.add(textoNome);
 	}
 
@@ -68,7 +64,7 @@ public class AddMusica implements ActionListener {
 
 	public void textoArtista() {
 		textoArtista = new JTextField("");
-		textoArtista.setBounds(140, 70, 200, 30);
+		textoArtista.setBounds(150, 70, 200, 30);
 		frame.add(textoArtista);
 	}
 
@@ -81,7 +77,7 @@ public class AddMusica implements ActionListener {
 
 	public void textoAno() {
 		textoAno = new JTextField("");
-		textoAno.setBounds(140, 120, 200, 30);
+		textoAno.setBounds(150, 120, 200, 30);
 		frame.add(textoAno);
 	}
 
@@ -94,7 +90,7 @@ public class AddMusica implements ActionListener {
 
 	public void textoDuracao() {
 		textoDuracao = new JTextField("");
-		textoDuracao.setBounds(140, 170, 200, 30);
+		textoDuracao.setBounds(150, 170, 200, 30);
 		frame.add(textoDuracao);
 	}
 
@@ -110,16 +106,22 @@ public class AddMusica implements ActionListener {
 		JComboBox<String> box = new JComboBox<>(generos);
 		box.setBounds(140, 260, 150, 30);
 		frame.add(box);
-
 	}
 
-	public void botaoAdd() {
-		JButton botaoAdd = new JButton("Adicionar");
-		botaoAdd.setBounds(90, 320, 250, 30);
-		botaoAdd.setBackground(new Color(160, 75, 209, 255));
-		botaoAdd.setActionCommand("Adicionar");
-		botaoAdd.addActionListener(this);
-		frame.add(botaoAdd);
+	public void add() {
+		add = new JButton("Adicionar");
+		add.setBounds(110, 320, 250, 30);
+		add.setBackground(new Color(160, 75, 209, 255));
+		add.setActionCommand("Adicionar");
+		add.addActionListener(this);
+		frame.add(add);
+	}
+
+	public void valid() {
+		valid = new JLabel("Coloque os dados da nova música.");
+		valid.setBounds(110, 370, 300, 30);
+		valid.setForeground(new Color(160,75,209,255));
+		frame.add(valid);
 	}
 	
 	public void botaoVoltar() {
@@ -144,11 +146,11 @@ public class AddMusica implements ActionListener {
 			String valorDur = textoDuracao.getText();
 			if(valorNome.isEmpty() || valorArt.isEmpty()
 					|| valorAno.isEmpty() || valorDur.isEmpty()) {
-				//label: dados incorretos
+				valid.setText("Dados incorretos.");
 			} else {
-				//label: dados corretos, musica adicionada
-				new TelaMusica();
-				frame.dispose();
+				valid.setText("Dados corretos, música adicionada.");
+				//new TelaMusica();
+				//frame.dispose();
 			}
 		}
 		else if ("voltar" == ae.getActionCommand()) {

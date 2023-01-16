@@ -1,27 +1,30 @@
 package project.Tela3;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.JFrame;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.event.*;
+
+//import project.Tela3.AddArtista.String valorNome;
+import project.Tela3.AddArtista.valorNome;
+import project.Tela3.AddArtista.*;
 
 public class Manoel implements ListSelectionListener{
 	private static JFrame frame;
 	private static JList<String> lista;
+	private static JLabel nome;
 	
 	String musicas[] = {"caneta azul", "eu vou deixar de ser besta", 
 	"olha se vc nn me ama", "maura", "la ele"};
 	
 	public Manoel() {
 		frame = new JFrame("Manoel Gome");
-		frame.setSize(500, 400);
+		frame.setSize(500, 600);
 		frame.setLayout(null);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		construir();
 		frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
-
 	}
 	
 	public void construir() {
@@ -34,7 +37,9 @@ public class Manoel implements ListSelectionListener{
 	}
 		
 	public void nome() {
-		JLabel nome = new JLabel("Joab Manoel Gomes Caneta Azul");
+		nome = new JLabel("Joab Manoel Gomes Caneta Azul");
+		//nome = new JLabel("");
+		//nome.setText(ex);
 		nome.setBounds(150, 20, 300, 30);
 		nome.setForeground(new Color(160,75,209,255));
 		frame.add(nome);
@@ -72,14 +77,14 @@ public class Manoel implements ListSelectionListener{
 		lista = new JList<String>(musicas);
 		lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		lista.addListSelectionListener(this);
-		lista.setBounds(80, 140, 300, 150);
+		lista.setBounds(80, 140, 300, 300);
 		frame.add(lista);
 	}
 
 	public static void main(String[] args) {
 		Manoel exemplo = new Manoel();
+		//new Manoel();
 		lista.addListSelectionListener(exemplo);
-		
 	}
 	
 	public void valueChanged(ListSelectionEvent le) {  

@@ -1,21 +1,17 @@
 package project.Tela1;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import java.awt.*;
+import java.awt.image.*;
+import java.awt.event.*;
+import javax.swing.*;
+//import java.io.IOException;
+//import javax.imageio.ImageIO;
+import java.io.*;
+import javax.imageio.*;
 
-import project.TelaPlaylist;
 import project.Tela2.TelaMusica;
 import project.Tela3.TelaArtista;
+import project.Tela4.TelaPlaylist;
 
 public class TelaInicial implements ActionListener{
 	private static JFrame frame;
@@ -29,15 +25,14 @@ public class TelaInicial implements ActionListener{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		template();
-		construir();
 		//template();
-		//frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
+		construir();
+		frame.getContentPane().setBackground(new java.awt.Color(33,33,33,255));
 	}
 	
-	public void template() {
+	/*public void template() {
 		try {
-			BufferedImage img = ImageIO.read(getClass().getResource("/imagem/KengaTemplate2.jpg"));
+			BufferedImage img = ImageIO.read(getClass().getResource("/Imagem/KengaTemplate2.jpg"));
 			Image dimg = img.getScaledInstance(500, 600, Image.SCALE_SMOOTH);
 			ImageIcon icon = new ImageIcon(dimg);
 			JLabel label = new JLabel();
@@ -45,12 +40,12 @@ public class TelaInicial implements ActionListener{
 			frame.getContentPane().add(label, BorderLayout.CENTER);
 			frame.setContentPane(label);
 			frame.pack();
-
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
-	}
+	}*/
 		
 	public void construir() {
 		botaoMusica();
@@ -60,7 +55,7 @@ public class TelaInicial implements ActionListener{
 	
 	public void botaoMusica() {
 		botaoMusica = new JButton("Músicas");
-		botaoMusica.setBounds(105, 350, 300, 30);
+		botaoMusica.setBounds(90, 350, 300, 30);
 		botaoMusica.setBackground(new Color(160,75,209,255));
 		botaoMusica.setActionCommand("musica");
 		botaoMusica.addActionListener(this);
@@ -69,7 +64,7 @@ public class TelaInicial implements ActionListener{
 		
 	public void botaoArtista() {
 		botaoArtista = new JButton("Artistas");
-		botaoArtista.setBounds(105, 400, 300, 30);
+		botaoArtista.setBounds(90, 400, 300, 30);
 		botaoArtista.setBackground(new Color(160,75,209,255));
 		botaoArtista.setActionCommand("artista");
 		botaoArtista.addActionListener(this);
@@ -78,7 +73,7 @@ public class TelaInicial implements ActionListener{
 	
 	public void botaoPlaylist() {
 		botaoPlaylist = new JButton("Playlists");
-		botaoPlaylist.setBounds(105, 450, 300, 30);
+		botaoPlaylist.setBounds(90, 450, 300, 30);
 		botaoPlaylist.setBackground(new Color(160,75,209,255));
 		botaoPlaylist.setActionCommand("playlist");
 		botaoPlaylist.addActionListener(this);
@@ -86,8 +81,7 @@ public class TelaInicial implements ActionListener{
 	}
 		
 	public static void main(String[] args) {
-		 new TelaInicial();
-		
+		new TelaInicial();
 	}
 	
 	public void actionPerformed(ActionEvent ae) {
@@ -105,12 +99,3 @@ public class TelaInicial implements ActionListener{
 		}	
 	}
 }
-
-/*public void botaoVoltar() {
-	JButton botaoVoltar = new JButton("Voltar");
-	botaoVoltar.setBounds(10, 10, 80, 30);
-	botaoVoltar.setBackground(new Color(160,75,209,255));
-	botaoVoltar.setActionCommand("voltar");
-	botaoVoltar.addActionListener(this);
-	frame.add(botaoVoltar);
-}*/
